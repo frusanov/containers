@@ -1,7 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 
 source "./inc/load_dotenv.sh"
 source "./inc/utils.sh"
+source "./inc/help.sh"
 
 CONTAINER_NAME='swag'
 
@@ -31,7 +32,7 @@ case "$1" in
     break;
   ;;
   *)
-    source "./inc/help.sh"
+    base_help
   ;;
 esac
 
