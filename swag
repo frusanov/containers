@@ -1,3 +1,37 @@
 #!/bin/sh
 
-echo $1
+source "./inc/load_dotenv.sh"
+source "./inc/utils.sh"
+
+CONTAINER_NAME='swag'
+
+case "$1" in
+  'create')
+    docker create \
+    --name="$CONTAINER_NAME" \
+    --cap-add=NET_ADMIN \
+    -e PUID=$PUID \
+    -e PGID=$PGID \
+    -e TZ=$TZ \
+    -e URL=$URL \
+    -e SUBDOMAINS=www, \
+    -e VALIDATION=http \
+    -e STAGING=false \
+    -p 443:443 \
+    -p 80:80 \
+    -v ./config:/config \
+    --restart unless-stopped \
+    ghcr.io/linuxserver/swag
+
+    break;
+  ;;
+  'remove')
+    docker container rm $CONTAINER_NAME
+
+    break;
+  ;;
+  *)
+    source "./inc/help.sh"
+  ;;
+esac
+
