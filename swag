@@ -9,7 +9,7 @@ CONTAINER_NAME='swag'
 case "$1" in
   'create')
     docker create \
-    --name="$CONTAINER_NAME" \
+    --name=$CONTAINER_NAME \
     --cap-add=NET_ADMIN \
     -e PUID=$PUID \
     -e PGID=$PGID \
