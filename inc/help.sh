@@ -3,8 +3,7 @@ function no_command_such () {
 }
 
 function base_help (
-  echo -e "
-Avaible commands:
+  echo -e "Avaible commands:
 
   create - creates $(bold $CONTAINER_NAME) container
   remove - removes $(bold $CONTAINER_NAME) container
