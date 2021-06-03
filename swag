@@ -27,7 +27,6 @@ case "$1" in
   'remove')
     docker container rm $CONTAINER_NAME
   ;;
-  br
   *)
     base_help
   ;;
