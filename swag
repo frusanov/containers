@@ -23,14 +23,11 @@ case "$1" in
     -v ./config:/config \
     --restart unless-stopped \
     ghcr.io/linuxserver/swag
-
-    break;
   ;;
   'remove')
     docker container rm $CONTAINER_NAME
-
-    break;
   ;;
+  br
   *)
     base_help
   ;;
